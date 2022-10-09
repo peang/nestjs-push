@@ -1,10 +1,15 @@
 {
   "name": "nestjs-push",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Push Module for Nest JS",
   "author": "Irvan Setiawan",
   "private": false,
   "license": "MIT",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*",
+    "*.md"
+  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -19,6 +24,16 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "keywords": [
+    "nestjs"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peang/nestjs-push"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
