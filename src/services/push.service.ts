@@ -36,7 +36,7 @@ export class PushService {
    *   service for delivery.
    */
   async sendToDevices(
-    deviceTokens: [],
+    deviceTokens: string[],
     payload: firebaseAdmin.messaging.MessagingPayload,
     imageUrl?: string,
   ): Promise<{
