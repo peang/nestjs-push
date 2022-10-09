@@ -1,6 +1,6 @@
 {
   "name": "nestjs-push",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Push Module for Nest JS",
   "author": "Irvan Setiawan",
   "private": false,
