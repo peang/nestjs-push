@@ -17,22 +17,23 @@
 ### Installation
 
 ```bash
-npm install --save nestjs-fcm
+npm install --save nestjs-push
 ```
 
 ### FcmModule
 
-To user FcmService you must add the module first. **The `FcmModule` has a `@Global()` attribute so you should only import it once**.
+To use PushService you must add the module first. 
+**The `PushModule` has a `@Global()` attribute so you should only import it once**.
 
 ```typescript
 import { Module } from '@nestjs/common';
 import * as path from 'path';
-import { FcmModule } from 'nestjs-fcm';
+import { PushModule } from 'nestjs-push';
 
 @Module({
   imports: [
-    FcmModule.forRoot({
-      firebaseSpecsPath: path.join(__dirname, '../firebase.spec.json'),
+    PushModule.forRoot({
+      serviceJsonPath: path.join(__dirname, '../service-account.json'),
     }),
   ],
   controllers: [],
@@ -40,20 +41,26 @@ import { FcmModule } from 'nestjs-fcm';
 export class AppModule {}
 ```
 
-### `FcmService` use firebase.spec.json file to send notifications using firebase-admin dependency.
+### `PushService` use service-account-json.json file to send notifications using firebase-admin dependency.
 
 ```typescript
 @Injectable()
 export class SampleService {
-  constructor(private readonly fcmService: FcmService) {}
+  constructor(private readonly pushService: PushService) {}
 
   async doStuff() {
-    await this.fcmService.sendNotification([
-      'device_id_1',
-      'device_id_2',
-      ]
+    await this.pushService.sendToDevices([
+        'device_token_1',
+        'device_token_1',
+      ],
       payload,
-      silent,
+      imageUrl,
+    ]);
+
+    await this.pushService.sendToTopics(
+      'topic-name',
+      payload,
+      imageUrl,
     ]);
   }
 }
