@@ -76,7 +76,7 @@ Contributions welcome! See [Contributing](CONTRIBUTING.md).
 
 ## Author
 
-**Razvan Costianu**
+**Irvan Setiawan**
 
 ## License
 
