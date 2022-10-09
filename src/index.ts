@@ -1,3 +1,4 @@
-export * from './fcm.module';
+export * from './push.module';
 //services
 export * from './services/push.service';
+
